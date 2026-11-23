@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Exercise Counter & Form Checker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header><h1>🏋️ AI Exercise Counter & Form Checker</h1></header>
+
+  <main>
+    <section class="left">
+      <div class="controls">
+        <select id="exercise">
+          <option value="squat">Squat</option>
+          <option value="pushup">Push-up</option>
+          <option value="lunge">Lunge</option>
+          <option value="curl">Bicep Curl</option>
+          <option value="plank">Plank (timer)</option>
+        </select>
+        <label>Weight (kg) <input id="weight" type="number" value="70" min="30" max="200" /></label>
+        <label><input id="voice" type="checkbox" /> Voice feedback</label>
+        <button id="startBtn">▶ Start Camera</button>
+        <button id="resetBtn">⟲ Reset</button>
+      </div>
+
+      <div class="stage">
+        <video id="video" playsinline muted></video>
+        <canvas id="canvas"></canvas>
+        <div id="loading">Press "Start Camera"</div>
+      </div>
+
+      <div id="feedback" class="fb">Choose an exercise and press Start.</div>
+      <div id="live" class="live"></div>
+      <div id="camTip" class="tip"></div>
+    </section>
+
+    <aside class="right">
+      <div class="card big"><span id="mainLabel">REPS</span><b id="mainValue">0</b></div>
+      <div class="grid">
+        <div class="card"><span>Wrong reps</span><b id="bad">0</b></div>
+        <div class="card"><span>Form accuracy</span><b id="acc">--</b></div>
+        <div class="card"><span>Avg rep time</span><b id="avg">--</b></div>
+        <div class="card"><span>Session time</span><b id="time">00:00</b></div>
+        <div class="card"><span>Calories (est.)</span><b id="kcal">0</b></div>
+        <div class="card"><span>Phase</span><b id="phase">--</b></div>
+      </div>
+      <div class="card">
+        <span>Body parts worked</span>
+        <p id="muscles">--</p>
+      </div>
+      <div class="card">
+        <span>Angle (live)</span>
+        <p id="angle">--</p>
+      </div>
+    </aside>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
