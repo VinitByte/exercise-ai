@@ -6,10 +6,14 @@ main{display:flex;flex-wrap:wrap;gap:16px;padding:16px;max-width:1200px;margin:a
 .left{flex:2;min-width:320px}
 .right{flex:1;min-width:260px;display:flex;flex-direction:column;gap:12px}
 .controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:10px}
-select,input[type=number],button{padding:8px 12px;border-radius:8px;border:1px solid #334155;background:#1e293b;color:#e2e8f0;font-size:1rem}
+select,input[type=number],button,.filebtn{padding:8px 12px;border-radius:8px;border:1px solid #334155;background:#1e293b;color:#e2e8f0;font-size:1rem}
 input[type=number]{width:80px}
-button{cursor:pointer;background:#2563eb;border:none}
-button:hover{background:#1d4ed8}
+button,.filebtn{cursor:pointer;background:#2563eb;border:none}
+button:hover,.filebtn:hover{background:#1d4ed8}
+button:focus-visible,select:focus-visible,.filebtn:focus-within{outline:2px solid #93c5fd;outline-offset:2px}
+button.grey,.filebtn{background:#475569;font-size:.9rem}
+button.red{background:#b91c1c}
+button.red:hover{background:#991b1b}
 #resetBtn{background:#475569}
 .stage{position:relative;width:100%;aspect-ratio:4/3;background:#000;border-radius:12px;overflow:hidden}
 video,canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scaleX(-1)}
@@ -25,3 +29,8 @@ video,canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;t
 .card.big{text-align:center;background:#1d4ed8}
 .card.big b{font-size:4rem}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.teach{margin-top:14px;background:#1e293b;border-radius:12px;padding:12px}
+.teach summary{cursor:pointer;font-weight:600}
+.teach p{font-size:.9rem;color:#cbd5e1;line-height:1.5}
+.row{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.coach{white-space:pre-wrap;font-size:.95rem;line-height:1.5;margin-top:10px}
