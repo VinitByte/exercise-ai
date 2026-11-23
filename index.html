@@ -19,10 +19,19 @@
           <option value="curl">Bicep Curl</option>
           <option value="plank">Plank (timer)</option>
         </select>
+        <select id="model" title="Pose AI model">
+          <option value="lite">Model: Lite (fast)</option>
+          <option value="full" selected>Model: Full (accurate)</option>
+          <option value="heavy">Model: Heavy (most accurate)</option>
+        </select>
         <label>Weight (kg) <input id="weight" type="number" value="70" min="30" max="200" /></label>
-        <label><input id="voice" type="checkbox" /> Voice feedback</label>
         <button id="startBtn">▶ Start Camera</button>
         <button id="resetBtn">⟲ Reset</button>
+      </div>
+      <div class="controls">
+        <label><input id="voice" type="checkbox" /> Voice feedback</label>
+        <label><input id="useAI" type="checkbox" checked /> Use my trained AI for form</label>
+        <label><input id="autoDet" type="checkbox" /> Auto-detect exercise</label>
       </div>
 
       <div class="stage">
@@ -34,6 +43,24 @@
       <div id="feedback" class="fb">Choose an exercise and press Start.</div>
       <div id="live" class="live"></div>
       <div id="camTip" class="tip"></div>
+
+      <details class="teach" open>
+        <summary>Teach the AI your form (optional)</summary>
+        <p>Start the camera, pick the exercise, then press <b>Record correct form</b> and do about 5 perfect reps.
+           Press <b>Record wrong form</b> and do reps with your usual mistakes. The AI learns on your device and nothing is uploaded.
+           Record the same exercise from 2–3 different positions for better results.</p>
+        <div class="row">
+          <button id="recGood">● Record correct form</button>
+          <button id="recBad" class="red">● Record wrong form</button>
+        </div>
+        <div id="teachStatus" class="tip"></div>
+        <div id="teachInfo" class="tip"></div>
+        <div class="row">
+          <button id="clearAI" class="grey">Clear this exercise</button>
+          <button id="exportAI" class="grey">Export</button>
+          <label class="filebtn">Import<input type="file" id="importAI" accept=".json" hidden /></label>
+        </div>
+      </details>
     </section>
 
     <aside class="right">
@@ -47,12 +74,25 @@
         <div class="card"><span>Phase</span><b id="phase">--</b></div>
       </div>
       <div class="card">
+        <span>Trained AI verdict</span>
+        <p id="aiBox">Not trained yet</p>
+      </div>
+      <div class="card">
+        <span>AI-detected exercise</span>
+        <p id="detBox">Needs training of 2+ exercises</p>
+      </div>
+      <div class="card">
         <span>Body parts worked</span>
         <p id="muscles">--</p>
       </div>
       <div class="card">
         <span>Angle (live)</span>
         <p id="angle">--</p>
+      </div>
+      <div class="card">
+        <span>Coach report (free)</span>
+        <button id="coachBtn">Get my coaching report</button>
+        <p id="coachOut" class="coach"></p>
       </div>
     </aside>
   </main>
